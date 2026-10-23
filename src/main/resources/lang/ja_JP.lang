@@ -1,2 +1,2 @@
-packport.loading = "%sを読み込んでいます..."
-packport.loaded = "%sは正しく読み込まれました!"
+packport.loading = %sを読み込んでいます...
+packport.loaded = %sは正しく読み込まれました!
