@@ -34,19 +34,21 @@ public final class Lang {
         try {
             Files.createDirectories(langFolder);
 
-            if (Files.notExists(langFile)) {
-                try (InputStream input =
-                             Lang.class.getClassLoader()
-                                     .getResourceAsStream(resource)) {
+            try (InputStream input =
+                         Lang.class.getClassLoader()
+                                 .getResourceAsStream(resource)) {
 
-                    if (input == null) {
-                        throw new IOException(
-                                "Language resource not found: " + resource
-                        );
-                    }
-
-                    Files.copy(input, langFile);
+                if (input == null) {
+                    throw new IOException(
+                            "Language resource not found: " + resource
+                    );
                 }
+
+                Files.copy(
+                        input,
+                        langFile,
+                        java.nio.file.StandardCopyOption.REPLACE_EXISTING
+                );
             }
 
             Properties loaded = new Properties();

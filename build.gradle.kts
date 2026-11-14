@@ -17,11 +17,11 @@ repositories {
 }
 
 dependencies {
-    // Geyser API - needed for all extensions
     compileOnly("org.geysermc.geyser:api:$geyserApiVersion-SNAPSHOT")
-    implementation("org.yaml:snakeyaml:2.7")
+    compileOnly("org.geysermc.geyser:core:$geyserApiVersion-SNAPSHOT")
 
-    // Include other dependencies here - e.g. configuration libraries.
+    implementation("org.yaml:snakeyaml:2.7")
+    implementation("com.google.code.gson:gson:2.14.0")
 }
 
 // Java currently requires Java 21 or higher, so extensions should also target it
